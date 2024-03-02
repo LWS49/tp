@@ -511,14 +511,33 @@ testers are expected to do more *exploratory* testing.
 
     1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
 
-    1. Test case: `delete 1`<br>
-       Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+       1. Test case: `delete 1`<br>
+          Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
 
-    1. Test case: `delete 0`<br>
-       Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+       2. Test case: `delete 0`<br>
+          Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
 
-    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
-       Expected: Similar to previous.
+       3. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+          Expected: Similar to previous.
+
+### Editing an entry
+
+1. Editing a person 
+
+    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+
+       1. Test case: `edit 1 /email nussu@u.nus.edu`<br>
+          Expected: For first entry, email is updated to above. Timestamp in the status bar is updated.
+
+       2. Test case: `edit 1 /email nussu@u.nus.edu /number 9666 1666`<br>
+          Expected: For first entry, email and phone number is updated to above. Timestamp in the status bar is updated.
+
+       3. Test case: `edit 0 /email nussu@u.nus.edu /number 9666 1666`<br>
+          Expected: No entry is updated. Error details shown in the status message. Status bar remains the same.
+
+       4. Other incorrect delete commands to try: `edit 1 /email`, `edit 1 email nussu@u.nus,edu`, `edit x /email nussu@u.nus,edu`, `...` (where x is larger than the list size)<br>
+          Expected: Similar to previous.
+
 
 1. _{ more test cases …​ }_
 
