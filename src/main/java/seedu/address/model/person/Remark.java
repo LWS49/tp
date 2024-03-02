@@ -12,7 +12,7 @@ public class Remark {
     /**
      * Constructs a {@code Remark}.
      *
-     * @param remark A remark.
+     * @param value A remark.
      */
     public Remark(String value) {
         requireNonNull(value);
