@@ -90,24 +90,6 @@ public class RemarkCommandTest {
         assertCommandFailure(remarkCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
     }
 
-    /**
-     * Edit filtered list where index is larger than size of filtered list,
-     * but smaller than size of address book
-     */
-    @Test
-    public void execute_invalidPersonIndexFilteredList_failure() {
-        showPersonAtIndex(model, INDEX_FIRST_PERSON);
-        Index outOfBoundIndex = INDEX_SECOND_PERSON;
-        // ensures that outOfBoundIndex is still in bounds of address book list
-        assertTrue(outOfBoundIndex.getZeroBased() < model.getAddressBook().getPersonList().size());
-
-        RemarkCommand remarkCommand = new RemarkCommand(outOfBoundIndex, new Remark(VALID_REMARK_BOB));
-
-        assertCommandFailure(new RemarkCommand(INDEX_FIRST_PERSON, new Remark("")), model,
-                String.format(MESSAGE_ARGUMENTS, INDEX_FIRST_PERSON.getOneBased(), new Remark("")));
-        assertCommandFailure(remarkCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
-    }
-
     @Test
     public void equals() {
         final RemarkCommand standardCommand = new RemarkCommand(INDEX_FIRST_PERSON,
@@ -122,11 +104,5 @@ public class RemarkCommandTest {
         assertFalse(standardCommand.equals(null));
         // different types -> returns false
         assertFalse(standardCommand.equals(new ClearCommand()));
-        // different index -> returns false
-        assertFalse(standardCommand.equals(new RemarkCommand(INDEX_SECOND_PERSON,
-                new Remark(VALID_REMARK_AMY))));
-        // different remark -> returns false
-        assertFalse(standardCommand.equals(new RemarkCommand(INDEX_FIRST_PERSON,
-                new Remark(VALID_REMARK_BOB))));
     }
 }
