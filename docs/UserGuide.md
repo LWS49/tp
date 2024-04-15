@@ -261,7 +261,7 @@ Your internship now has the updated email that you keyed in.
 #### 4. Find internship entries: `find`
 
 Before you continue, add a few more internship entries using these commands:
-1. `add /com Google /desc create new search engine /status to_apply /poc `<br>`john tan /email johntan@gmail.com /phone 98765432 /loc local`<br>`/role Software Intern`
+1. `add /com Google /desc create new search engine /status to_apply /poc `<br>`john tan /email johntan@gmail.com /phone 98765432 /loc`<br>`local /role Software Intern`
 2. `add /com Facebook /desc create new social media platform /status to_apply /poc`<br>`jane tan /email facebookhr@gmail.com /phone 87654321 /loc remote /role`<br>`Software Intern`
 
 
@@ -346,6 +346,8 @@ Understanding what makes an internship unique will help you avoid duplicate inte
 internship entry **are the same** as an already existing internship entry!
 
 </div>
+
+<div class="page-break"></div>
 
 #### Wrapping up the tutorial
 
